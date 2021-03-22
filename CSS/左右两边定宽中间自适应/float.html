@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>float浮动</title>
+    <style>
+      .wrap {
+        width: 100%;
+        height: 200px;
+      }
+      .wrap > div {
+        height: 100%;
+      }
+      .left {
+        width: 120px;
+        float: left;
+        background-color: red;
+      }
+      .right {
+        width: 120px;
+        float: right;
+        background-color: blue;
+      }
+      /* .center {
+        margin: 0 120px;
+        background-color: yellow;
+      } */
+      .center {
+        width: calc(100%-240px);
+        margin-left: 120px;
+        background-color: yellow;
+      }
+      .clearfix:after {
+        height: 0;
+        display: block;
+        content: "";
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 列表顺序要注意 -->
+    <div class="wrap clearfix">
+      <div class="left">左</div>
+      <div class="right">右</div>
+      <div class="center">中</div>
+    </div>
+  </body>
+</html>

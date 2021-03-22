@@ -1,0 +1,7 @@
+css面试考点链接
+https://segmentfault.com/a/1190000013325778
+
+1. 居中
+https://liuyib.github.io/2020/04/07/css-h-and-v-center/
+4. flex 常用属性
+http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html

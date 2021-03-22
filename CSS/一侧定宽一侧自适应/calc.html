@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>calc一侧定宽一侧自适应</title>
+    <style>
+      aside {
+        width: 120px;
+        float: left;
+        height: 200px;
+        background-color: red;
+      }
+      main {
+        float: left;
+        width: calc(100% - 120px);
+        height: 200px;
+        background-color: blue;
+      }
+      .clearfix:after {
+        content: "";
+        height: 0;
+        display: block;
+        clear: both;
+      }
+
+    </style>
+  </head>
+  <body>
+    <section class="clearfix">
+      <aside>aside</aside>
+      <main>main</main>
+    </section>
+  </body>
+</html>

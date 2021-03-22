@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>flex布局</title>
+    <style>
+      section {
+        display: flex;
+      }
+      aside {
+        width: 200px;
+        background-color: red;
+      }
+      main {
+        flex: 1;
+        order: 1;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <main>main</main>
+      <aside>aside</aside>
+    </section>
+  </body>
+</html>

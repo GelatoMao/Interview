@@ -1,0 +1,41 @@
+<!-- 这种写法有不完美的地方 假设html结构如下
+ul
+  li
+    span
+  li 
+    span 
+当用户点击了span 但是却不会输出点击事件 但事实上是应该输出
+不同直接判断事件元素是li 而应该不停的去取它的父元素 直到到顶端
+
+ul.addEventListener('click',function(e){
+  if(e.target.value.toLowerCase() === 'li'){
+    console.log('点击了li')
+  }
+}) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 事件委托就是把一个元素响应时间(click，keydown....)的函数委托到另一个元素。一般来说， 会把一个或者一组元素的事件委托到父层或者更外层元素上。真正绑定事件的是外层元素，当事件响应到需要绑定的元素时候，会通过事件冒泡机制，从而触发他的外层元素的绑定事件上，然后在外层函数执行 -->
+
+    <ul class="list" id="list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </body>
+  <script>
+    window.onload = function () {
+      const list = document.getElementById("list")
+      list.addEventListener("click", function (event) {
+        console.log(event.target)
+      })
+    }
+  </script>
+</html>

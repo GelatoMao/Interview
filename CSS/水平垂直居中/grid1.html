@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #999;
+      }
+
+      .inner {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #999;
+      }
+
+      .outer {
+        display: grid;
+      }
+
+      .inner {
+        justify-self: center; /* 水平居中 */
+        align-self: center; /* 垂直居中 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="inner">hello world</div>
+    </div>
+  </body>
+</html>

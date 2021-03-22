@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="throttle">测试函数节流</button>
+    <button id="debounce">测试函数防抖</button>
+
+    <script>
+      /**
+       * 用来返回节流函数的工具函数
+       */
+      function throttle(callback, delay) {
+        // 默认值不要是Date.now()==>第一次事件立即调用
+        let pre = 0
+        // 节流函数/真正的事件回调函数 this是发生事件的标签 btn
+        return function (event) {
+          const current = Date.now()
+          // 只有离上一次调用callback的时间差大于delay
+          if (current - pre > delay) {
+            // 调用真正处理事件的函数，this是事件源，也就是点击事件的标签，参数是event
+            callback.call(this, event)
+            // 记录此次调用的时间
+            pre = current
+          }
+        }
+      }
+
+      /**
+       * 用来返回防抖函数的工具函数
+       */
+      function debounce(callback, delay) {
+        return function (event) {
+          // 如果上次事件还没有真正处理 取消它
+          // if(callback.timeoutId) 会去原型链上查找
+          if (callback.hasOwnProperty("timeoutId")) {
+            // 不会查找原型链
+            clearTimeout(callback.timeoutId)
+          }
+          // 在事件发生指定时间后才调用处理事件的回调函数
+          // 启动定时器，只是准备真正处理
+          callback.timeoutId = setTimeout(() => {
+            // 正在处理事件
+            callback.call(this, event)
+            // 删除准备处理的标记
+            delete callback.timeoutId
+          }, delay)
+        }
+      }
+
+      /**
+       * 点击事件是高频触发的 但是处理点击事件的回调函数应该是低频的
+       */
+      function handleClick(event) {
+        console.log("处理点击事件", this, event)
+      }
+
+      document.getElementById("throttle").onclick = throttle(handleClick, 2000)
+      document.getElementById("debounce").onclick = debounce(handleClick, 2000)
+    </script>
+  </body>
+</html>

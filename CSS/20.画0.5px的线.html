@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Document</title>
+    <style>
+      .hr {
+        width: 300px;
+        background-color: #000;
+      }
+
+      .hr.half-px {
+        height: 1px;
+        transform: scaleY(0.5);
+      }
+      /* linear-gradient(0deg, #fff, #000)的意思是：渐变的角度从下往上，从白色#fff渐变到黑色#000，而且是线性的，在高清屏上，1px的逻辑像素代表的物理（设备）像素有2px，由于是线性渐变，所以第1个px只能是#fff，而剩下的那个像素只能是#000，这样就达到了画一半的目的。实际效果和使用缩放类似 */
+      .hr.gradient {
+        height: 1px;
+        background: linear-gradient(0deg, #fff, #000);
+      }
+      
+      .hr.one-px {
+        height: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>0.5px</p>
+    <div class="hr half-px"></div>
+    <p>0.5px</p>
+    <div class="hr gradient"></div>
+    <p>1px</p>
+    <div class="hr one-px"></div>
+  </body>
+</html>

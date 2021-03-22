@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>传统浮动布局</title>
+    <style>
+      section::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      aside {
+        float: left;
+        width: 200px;
+        background: red;
+      }
+      main {
+        margin-left: 200px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <aside>aside</aside>
+      <main>main</main>
+    </section>
+  </body>
+</html>

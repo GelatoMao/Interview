@@ -1,0 +1,16 @@
+
+1. HTTP 状态码
+https://www.runoob.com/http/http-status-codes.html
+
+2. HTTP 缓存
+https://imweb.io/topic/5795dcb6fb312541492eda8c
+
+3. GET 和 POST 的区别
+https://zhuanlan.zhihu.com/p/22536382
+
+5. HTTP2 和 HTTP1 的区别
+https://imququ.com/post/series.html
+
+9. 输入url到展示的过程
+https://juejin.cn/post/6928677404332425223#heading-1
+https://juejin.cn/post/6935232082482298911

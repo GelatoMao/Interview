@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">点击</button>
+    <input type="text" id="unDebounce" />
+
+    <script>
+      function debounce(fn, wait) {
+        let timer
+        return function () {
+          if (timer) {
+            clearTimeout(timer)
+          }
+          timer = setTimeout(() => {
+            fn.apply(this, arguments)
+          }, wait)
+        }
+      }
+
+      function ajax(content) {
+        console.log("ajax request " + content)
+      }
+
+      let debounceAjax = debounce(ajax, 500)
+
+      const btn = document.getElementById("unDebounce")
+      // 传递参数所以监听函数里面写了一个匿名函数，在匿名函数里面调用函数传递参数 function很关键
+      btn.addEventListener("keyup", function (e) {
+        // ajax(e.target.value)
+        // debounce(ajax, 3000)(e.target.value) 这种方式不行 timer不是同一个timer
+        debounceAjax(e.target.value)
+        
+      })
+    </script>
+  </body>
+</html>

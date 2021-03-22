@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>grid两栏布局</title>
+    <style>
+      section {
+        display: grid;
+        /*格子是两列，第一列固定宽度200px，第二列撑满剩余空间*/
+        grid-template-columns: 200px 1fr;
+        /*格子是是一行，高度由子项决定*/
+        grid-template-rows: auto;
+      }
+      aside {
+        grid-column: 1/2; /*放在第1和第2根列线内*/
+        grid-row: 1/2; /*放在第1和第2根行线内*/
+        background: blue;
+      }
+      main {
+        grid-column: 2/3; /*放在第2和第3根列线内*/
+        grid-row: 1/2; /*放在第1和第2根行线内*/
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 使用grid布局，先用grid-template-columns/grid-template-rows 给容器画虚拟格子，再把元素通过 grid-column/grid-row 塞到格子里。 -->
+    <section>
+      <main>main</main>
+      <aside>aside</aside>
+    </section>
+  </body>
+</html>
